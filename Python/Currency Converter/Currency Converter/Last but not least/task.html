@@ -1,0 +1,80 @@
+<h5> Description</h5>
+
+<p>At this stage, you need to specify what currency you want to exchange. Imagine that you have some money the amount of which naturally changes. From time to time you go to the bank to check the rates because you want to <em>choose the <strong>best</strong> currency to exchange your money for. </em>At this stage, you need to read the currency to exchange, then read the currency you might exchange your money for, and the amount of money you want to exchange. Notice that the input number can have a fractional part!</p>
+
+<p>Remember that you want to cut the most beneficial deal for what you have, so the currency to exchange stays the same while the currency you might exchange your money for and the amount of money changes (you can change your mind about the sum or suddenly find some more in your pocket, right?).</p>
+
+<p><div class="alert alert-primary">So, the very first currency in the input is the one you want to exchange. Next goes the exchange currency and the amount of money to exchange. The number of possible currencies for exchange and the amount of money you have vary from test to test, so let checking if the input is empty be a flag for you: if you came across an empty input, the options of exchange are over.</div></p>
+
+<p>Parse the data from <a target="_blank" href="http://www.floatrates.com/json-feeds.html" rel="noopener noreferrer nofollow">FloatRates</a>. You can store it in any collection you want. You have probably already done that at stage 4 with a set of imaginary rates, now you'll just have to save the rates at runtime. It's called caching – a simple way to speed up the program. If the exchange target is the same, you already know the rate, so there is no need to connect to the Internet,  you only need to refer to the data in our cache and do the calculations.</p>
+
+<p>Check the cache — the required currency might be already in there, print the result afterward. Output the amount of money that the bank employee should give you. </p>
+
+<h5>Objectives</h5>
+
+<p>You're in the bank. Let's go over the steps one more time:</p>
+
+<ol>
+	<li>Take the currency code – the first one is the one that you have, it stays the same for all the calculations within one test; until the input is empty, read the currency code that you want to receive and the amount of money you have as an input.</li>
+	<li>Retrieve the data from <a target="_blank" href="http://www.floatrates.com/json-feeds.html" rel="noopener noreferrer nofollow">FloatRates</a> as in the previous exercises.</li>
+	<li>Save the exchange rates for USD and EUR.</li>
+	<li>Read the currency to exchange for and the amount of money once again.</li>
+	<li>Take a look at the cache. Maybe you already have what you need?</li>
+	<li>If you have the currency in your cache, calculate the amount.</li>
+	<li>If not, get it from the site, and calculate the amount.</li>
+	<li>Save all the information to your cache.</li>
+	<li>Print the results.</li>
+	<li>Repeat steps 4-9 until there is no currency left to process.</li>
+</ol>
+
+<h5>Examples</h5>
+
+<p>The greater-than symbol followed by a space (<code class="java">&gt; </code>) represents the user input. Note that it's not part of the input.</p>
+
+<p>Example 1:</p>
+
+<pre><code class="language-no-highlight">&gt; ILS
+&gt; USD
+&gt; 45
+Checking the cache...
+Oh! It is in the cache!
+You received 13.84 USD.
+&gt; RSD
+&gt; 57
+Checking the cache...
+Sorry, but it is not in the cache!
+You received 1684.41 RSD.
+&gt; EUR
+&gt; 33
+Checking the cache...
+Oh! It is in the cache!
+You received 8.38 EUR.</code></pre>
+
+<p>Example 2:</p>
+
+<pre><code class="language-no-highlight">&gt; USD
+&gt; EUR
+&gt; 20
+Checking the cache...
+Oh! It is in the cache!
+You received 16.52 EUR.
+&gt; NOK
+&gt; 45
+Checking the cache...
+Sorry, but it is not in the cache!
+You received 382.1 NOK.
+&gt; SEK
+&gt; 75
+Checking the cache...
+Sorry, but it is not in the cache!
+You received 624.66 SEK.
+&gt; NOK
+&gt; 55
+Checking the cache...
+Oh! It is in the cache!
+You received 467.02 NOK.
+&gt; ISK
+&gt; 91
+Checking the cache...
+Sorry, but it is not in the cache!
+You received 11708.38 ISK.</code></pre>
